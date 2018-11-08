@@ -1,0 +1,126 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+  color: #1AAB8A;
+  text-align: center;
+}
+
+.main{
+  position: absolute;
+  width: 20em;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%,-50%);
+  animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  padding: 70px 5px;
+  background: rgba(159, 238, 187, 0.7);
+  border-radius: 50px;
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.row form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#chart-main{
+  position: absolute;
+    width: 50em;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    padding: 70px 5px;
+}
+
+#vote-main, #index-main{
+  position: absolute;
+    width: 50em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    padding: 70px 5px;
+}
+
+button{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.4em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  margin: 10px 0;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+input[type=text],input[type=password]{
+    background-color: transparent;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #777;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: inherit;
+  font-size: 1em;
+  padding: 2px;
+  margin: 10px 0;
+}
+
+input:focus, select:focus, textarea:focus, button:focus { outline: none; }
+
+.flashes{
+  list-style-type: none;
+  padding:0;
+  margin:0;
+  color:red;
+  font:1em;
+}

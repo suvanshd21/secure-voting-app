@@ -1,0 +1,8 @@
+TO DO
+
+1. CSS - done
+2. Admin vis - done
+3. Admin login - done
+4. Admin insert candidates - done
+5. Log-in auth - done
+6. Time-out

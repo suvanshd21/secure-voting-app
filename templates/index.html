@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Secure Vote - Thank You!</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style type="text/css">
+    .poll-member h1 {
+    }
+    .percentageBarParent{
+      height: 22px;
+      width: 100%;
+      border: 1px solid black;
+    }
+    .percentageBar {
+      height: 20px;
+      width: 0%;
+    }
+  </style>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body onLoad="dispProgress({{candidate_list}})">
+  <div id="index-main" class="main">
+    <div class="container">
+      <h1>Thank you for voting!</h1>
+      <div class="col-md-12" id = "poll_list">
+        {% for candidate in candidate_list %}
+          <div class="poll-member" id = "wrapper{{ candidate.id }}">
+              <h3>{{candidate.name}}</h3><i>{{candidate.party}}</i>
+              <div class="percentageBarParent">
+                <div class="percentageBar" id="{{ candidate.id }}"></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>

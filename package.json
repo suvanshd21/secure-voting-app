@@ -1,0 +1,20 @@
+{
+  "name": "voting-flask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "qrious": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/neocotic/qrious"
+}
+}

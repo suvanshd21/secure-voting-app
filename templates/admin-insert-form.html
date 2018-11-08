@@ -1,0 +1,30 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Secure Vote - Admin</title>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    </head>
+    <body>
+
+      <div class="main" style="top:40%;">
+        <div class="container">
+          <h1>Insert New Candidate</h1>
+          <form action="/insert_new_cand" method="post">
+            <div><input type="text" name="name" placeholder="Name"></div>
+            <div><input type="text" name="party" placeholder="Party"></div>
+            <button type="submit">Insert</button>
+          </form>
+        </div>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.js"></script>
+      <script src="{{ url_for('static', filename='admin.js') }}" defer></script>
+    </body>
+    </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Secure Vote - Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style type="text/css">
+    .poll-member h1 {
+      cursor: pointer
+    }
+    .percentageBarParent{
+      height: 22px;
+      width: 100%;
+      border: 1px solid black;
+    }
+    .percentageBar {
+      height: 20px;
+      width: 0%;
+    }
+  </style>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+  <div class="main">
+    <div class="container">
+      <h1>Welcome!</h1>
+      <div class="col-md-12">
+        <div class="row">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class=flashes>
+                {% for message in messages %}
+                   <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+          {% block body %}{% endblock %}
+        </div>
+        <div class="row">
+          <form action="/validate" method="POST">
+            <div class="col-md-12">
+              <div><input name="voter_id" type="text" placeholder="Voter ID"/></div>
+              <div><input name="phone_number" type="text" placeholder="Phone Number" /></div>
+              <button type="submit">Log In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>

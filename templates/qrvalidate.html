@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Secure Vote - OTP</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style type="text/css">
+    .poll-member h1 {
+      cursor: pointer
+    }
+    .percentageBarParent{
+      height: 22px;
+      width: 100%;
+      border: 1px solid black;
+    }
+    .percentageBar {
+      height: 20px;
+      width: 0%;
+    }
+  </style>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+  <div class="main" style="margin-top: 40px;">
+    <div class="container">
+      <h1>Welcome {{result["name"]}}!</h1>
+      <div class="col-md-12">
+        <div class="row">
+        	<div id="qrcode" style="display:flex;justify-content: center;"></div>
+        </div>
+        <div class="row">
+        	<form action="/verify-otp" method="post" >
+        		<div><input type="text" name="otp" placeholder="Enter OTP" /></div>
+        		<div><input type="hidden" name="result" value="{{result}}" /></div>
+        		<div><button type="submit">Submit</button></div>
+        	</form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='qrcode.js') }}"></script>
+    <script type="text/javascript">
+		var qrcode = new QRCode(document.getElementById("qrcode"), {
+			text: "{{otp}}",
+			width: 128,
+			height: 128,
+			colorDark : "#000000",
+			colorLight : "#ffffff",
+			correctLevel : QRCode.CorrectLevel.H
+		});
+</script>
+<script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
